@@ -1,0 +1,59 @@
+<%- include('../Layout/loginHeader') %>
+
+    <br><br>
+
+    <div class="main">
+
+        <section class="login">
+            <!-- <img src="images/login-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="login-content">
+                    <form action="/login" method="post" id="login-form" class="login-form"
+                        onsubmit="return allChecking()">
+                        <h2 class="form-title">Login account</h2>
+
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" style="background-color: white;" placeholder="Email"
+                                onchange="emailValidate()" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="password" id="password"
+                                placeholder="Password" onchange="passwordValidate()" required />
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Log In"
+                                onclick="emailValidate(),passwordValidate()" />
+                            <br><br>
+                            <a href="/forgot/forgot-p" class="">Forgot Password ? </a>
+                            <div class="">
+                                <% if(typeof message !=='undefined' ){ %>
+                                    <span class="fs-4">
+                                        <span style="color: red;">
+                                            <%=message %>
+                                        </span>
+                                        <span style="color: green;">
+                                            <%=postive_message %>
+                                        </span>
+                                    </span>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                        Did n't have any account ? <a href="/register" class="signupHere-link">Register here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/mains.js"></script>
+    <script src="validation.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

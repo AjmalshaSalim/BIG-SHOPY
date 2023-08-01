@@ -1,0 +1,119 @@
+<%- include ('../layouts/adminHeader.ejs') %>
+
+
+
+
+
+
+        <h4 class="text-center my-5 text-success">ADMIN DASHBOARD</h4>
+        <div style="width: 100%; display: flex; justify-content: center; gap: 5%;">
+                <div class="col-sm-6 col-xl-4">
+                    <div class="rounded d-flex align-items-center justify-content-between p-4" style="background-color: #00b3b3;">
+                        <i class="fa fa-chart-bar fa-3x" style="color: white;"></i>
+                        <div class="ms-3">
+                            <p class="mb-2" style="color: white;">Sale</p>
+                            <h6 class="mb-0"  style="color: white;">
+                                <%=sales%>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4 bg-secondary">
+                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-chart-pie fa-3x " style="color: white;"></i>
+                        <div class="ms-3">
+                            <p class="mb-2" style="color: white;">Total Revenue</p>
+                            <h6 class="mb-0"  style="color: white;"><%=totalRevenue%></h6>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+        <!-- Sale & Revenue End -->
+
+<hr>
+        <!-- Sales Chart Start -->
+        <div style="height: 50vh;">
+            <div style=" margin-left:5% ; width: 90%; height: 60vh; background-color: rgb(255, 255, 255) ;">
+                <canvas id="myChart" class="mt-5" style="margin-left: 19%; width:100%;max-width:700px"></canvas>
+            </div>
+            <div style="margin-left:5% ; width:90%; height: 60vh; background-color: rgb(255, 255, 255) ; ">
+
+                <canvas id="myChart2" class="mt-5" style="margin-left: 19%;  width:100%;max-width:700px"></canvas>
+            </div>
+
+        </div>
+        <input type="hidden" id="pds" value="<%=pds%>">
+        <input type="hidden" id="qty" value="<%=qty%>">
+        <input type="hidden" id="key1" value="<%=key1%>" />
+        <input type="hidden" id="key2" value="<%=key2%>" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+        </script>
+
+        <script>
+
+            x = document.getElementById("pds").value;
+            y = document.getElementById("qty").value;
+            xValues = x.split(",")
+            yValues = y.split(",")
+            key1 = document.getElementById('key1').value
+            key2 = document.getElementById('key2').value
+            xValue = key1.split(",")
+            yValue = key2.split(",")
+            console.log(xValue, yValue);
+
+            var barColors = [
+                "#004c6d",
+                "#00ffff",
+                "#006083",
+                "#00e7f2",
+                "#007599",
+                "#00cfe3",
+                "#008bad",
+                "#00b8d3",
+                "#00a1c1",
+            ];
+
+            new Chart("myChart", {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        label: "Stock remains",
+                        backgroundColor: barColors,
+                        data: yValues,
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Products and Available Stock"
+                    }
+                }
+            });
+
+        </script>
+        
+        <script>
+            new Chart("myChart2", {
+                type: "pie",
+                data: {
+                    labels: xValue,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValue
+                    }]
+                },
+                
+                options: {
+                    title: {
+                        display: true,
+                        text: "Productwise Sale"
+                    }
+                }
+            });
+        </script>
+
+
+        <%- include ('../layouts/adminFooter.ejs') %>

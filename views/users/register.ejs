@@ -1,0 +1,61 @@
+<%- include('../Layout/signupHeader') %>
+
+    <br><br>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="login-content">
+                    <form action="/register" method="post" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Create account</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="Name"
+                                onchange="nameValidate()" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-input" name="mobile" id="mobile"
+                                placeholder="Mobile Number" onchange="numberValidate()" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Email"
+                                onchange="emailValidate()" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="password" id="password" placeholder="Password" autocomplete="off"
+                                onchange="passwordValidate()" required />
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="re_password" id="re_password"
+                                placeholder="Re-enter your password" onchange="passwordValidate2()" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"
+                                onclick="nameValidate() , emailValidate(), numberValidate(), passwordValidate(), passwordValidate2()" />
+                        </div>
+                        <p style="color: red;">
+                            <%=message %>
+                        </p>
+                        <p style="color: green;">
+                            <%=postive_message %>
+                        </p>
+                    </form>
+                    <p class="loginhere">
+                        Have already an account ? <a href="/login" class="loginhere-link">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/mains.js"></script>
+    <script src="validation.js"> </script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

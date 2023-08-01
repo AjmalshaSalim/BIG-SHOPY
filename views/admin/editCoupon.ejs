@@ -1,0 +1,44 @@
+<%- include ('../layouts/adminHeader.ejs') %>
+
+    
+        <h4 class="text-center text-success my-5"> EDIT COUPON</h4>
+        <h5 class="text-center text-danger my-1">
+            <%=message%>
+        </h5>
+        <br>
+
+        <form action="/admin/edit-coupon" method="post">
+            <input type="hidden" name="id" value="<%=coupon._id%>">
+            <!-- Email input -->
+            <div class=" mb-4 ">
+                <label for="" style="margin-left: 25%; margin-right: 30%;">Coupon Name</label>
+                <input style="margin-left: 25%; margin-right: 30%; background-color: rgb(233, 252, 245);" type="text" id="addCategories" name="coupName"
+                    class="form-control form-control-lg border-white w-50 h-10 mb-3" 
+                    required value="<%=coupon.name %>" />
+                    <label for="" style="margin-left: 25%; margin-right: 30%;">Discount (%)</label>
+                <input style="margin-left: 25%; margin-right: 30%; background-color: rgb(233, 252, 245);" type="number" id="addCategories" name="coupDis"
+                    class="form-control form-control-lg border-white w-50 h-10 mb-3"
+                    required value="<%=coupon.discount %>" />
+                    <label for="" style="margin-left: 25%; margin-right: 30%;">Minimum Price</label>
+                <input style="margin-left: 25%; margin-right: 30%; background-color: rgb(233, 252, 245);" type="number" id="addCategories" name="coupMin"
+                    class="form-control form-control-lg border-white w-50 h-10 mb-3" required
+                    value="<%=coupon.minimumvalue %>" />
+                    <label for="" style="margin-left: 25%; margin-right: 30%;">Maximum Price</label>
+                <input style="margin-left: 25%; margin-right: 30%; background-color: rgb(233, 252, 245);" type="number" id="addCategories" name="coupMax"
+                    class="form-control form-control-lg border-white w-50 h-10 mb-3" required
+                    value="<%=coupon.maximumvalue %>" />
+                    <label for="" style="margin-left: 25%; margin-right: 30%;">Expiry Date</label>
+                <input style="margin-left: 25%; margin-right: 30%; background-color: rgb(233, 252, 245);" type="date" id="addCategories" name="coupDate"
+                    class="form-control form-control-lg border-white w-50 h-10 mb-3" required
+                    value="<%=coupon.expiryDate %>" />
+                <span id="Email"></span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+                <a style="margin-left: 40%;"><button type="submit" class="btn-success rounded-2 p-2">Save</button></a>
+        </form>
+        <a style="margin-right: 40%;" href="/admin/loadCoupon"><button type="button"
+                class="btn-secondary rounded-2 p-2">cancel</button></a>
+
+    </div>
+    <%- include ('../layouts/adminFooter.ejs') %>
