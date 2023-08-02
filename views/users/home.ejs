@@ -158,18 +158,26 @@
         <div class="col-md-12">
           <div class="nonloop-block-3 owl-carousel">
 <% for(let i=0;i<6;i++){ %>
-            <div class="item"><a href="/loadShop">
-              <div class="block-4 text-center" style="height: 600px;">
-                <figure class="block-4-image">
-                  <img src="/uploads/<%=product[i].image[0]%>" alt="Image placeholder" class="img-fluid">
-                </figure>
-                <div class="block-4-text p-4">
+            <div class="item" style="background-color:white; height: 620px; border-radius: 20px;">
+              <div class="block-4 text-center" style="height: 300px;  border-radius: 20px; justify-content: center;" >  
+               <center>   <img src="/uploads/<%=product[i].image[0]%>" alt="Image placeholder" style="height: 300px; width: 300px;" class="img-fluid"></center>
+              </div>
+                <div class="block-4-text p-4" style="height: 260px;">
                   <h3><a href="#"><%=product[i].name%>&nbsp;<%=product[i].category%></a></h3>
                   <p class="text-primary font-weight-bold"><%=product[i].price%> ₹ </p>
                   <p class="mb-0"><%=product[i].description%></p>
                 </div>
-              </div>
-            </div></a>
+                  <div style=" display: flex; justify-content: center; height: 60px;">
+                  <a href="/addWishlist?id=<%=product[i]._id%>"> <button class="btn btn-danger px-3" style="font-size: small;"><i
+                    class="fa fa-Wishlist mr-1"></i> Add To
+                Wishlist</button></a>&nbsp;&nbsp;
+                <a href="/addToCart?id=<%=product[i]._id%>"> <button class="btn btn-primary px-3" style="font-size: small;"><i
+                    class="fa fa-shopping-cart mr-1"></i> Add To
+                Cart</button></a>
+              
+                </div>
+              
+            </div>
 <% } %>
 
             
