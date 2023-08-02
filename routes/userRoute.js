@@ -3,6 +3,7 @@ const user_route = express();
 const userController = require("../controllers/userController");
 const auth = require("../middleware/auth");
 const cartController = require("../controllers/cartController");
+const wishlistController=require("../controllers/wishlistController");
 
 
 
@@ -43,7 +44,15 @@ user_route.get("/addToCart",cartController.addToCart);
 
 user_route.post("/updateCart",cartController.updateCart);
 
-user_route.get('/delete-cart',cartController.deleteCart)
+user_route.get('/delete-cart',cartController.deleteCart);
+
+user_route.get("/loadWishlist",wishlistController.loadWishlist);
+
+user_route.get("/addWishlist",wishlistController.addWishlist);
+
+user_route.get("/deleteWishlist",wishlistController.deleteWishlist);
+
+user_route.get("/adCartremoveWishlist",wishlistController.addToCartremovefromwishlist)
 
 user_route.get("/loadCheckout",userController.loadCheckout);
 
