@@ -43,6 +43,18 @@ const userSchema = mongoose.Schema({
             default: 0
         }
     },
+    wishlist: {
+        item: [{
+            productId: {
+                type: mongoose.Types.ObjectId,
+                ref: 'product',
+                required: true
+            },
+            price: {
+                type: Number
+            },
+        }]
+    },
     wallet: {
         type: Number,
         default: 0
@@ -83,7 +95,31 @@ userSchema.methods.removefromCart = async function (productId) {
         return this.save()
     }
 }
+userSchema.methods.addToWishlist = function (product) {
+    const wishlist = this.wishlist
+    const isExisting = wishlist.item.findIndex(objInItems => {
+        return new String(objInItems.productId).trim() == new String(product._id).trim()
+    })
+    if (isExisting >= 0) {
 
+    } else {
+        wishlist.item.push({
+            productId: product._id,
+            price: product.price
+        })
+    }
+    return this.save()
+}
+userSchema.methods.removefromWishlist = async function (productId) {
+    const wishlist = this.wishlist
+    const isExisting = wishlist.item.findIndex(objInItems => new String(objInItems.productId).trim() === new String(productId).trim())
+    if (isExisting >= 0) {
+        const prod = await Product.findById(productId)
+        wishlist.item.splice(isExisting, 1)
+        return this.save()
+    }
+
+}
 
 
 userSchema.methods.addToCart = async function (product) {

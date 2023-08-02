@@ -7,9 +7,9 @@ const products = require("../models/productModel");
 
 const loadWishlist = async (req, res) => {
     try {
-        userSession = req.session
-        if (userSession.user_id) {
-            const userData = await User.findById({ _id: userSession.user_id })
+        userSession = req.session.user_id;
+        if (userSession) {
+            const userData = await User.findById({ _id: userSession })
             const completeUser = await userData.populate('wishlist.item.productId')
             res.render('wishlist', { user: req.session.user, wishlistProducts: completeUser.wishlist })
 
@@ -23,10 +23,10 @@ const loadWishlist = async (req, res) => {
 
 const addWishlist = async (req, res) => {
     const productId = req.query.id
-    userSession = req.session
-    if (userSession.user_id) {
-
-        const userData = await User.findById({ _id: userSession.user_id })
+    userSession = req.session.user_id;
+    if (userSession) {
+console.log(productId);
+const userData = await User.findById({ _id: userSession })
         const productData = await products.findById({ _id: productId })
         userData.addToWishlist(productData)
         res.redirect('/loadWishlist')
@@ -37,8 +37,8 @@ const addWishlist = async (req, res) => {
 
 const deleteWishlist = async (req, res) => {
     const productId = req.query.id
-    userSession = req.session
-    const userData = await User.findById({ _id: userSession.user_id })
+    userSession = req.session.user_id;
+            const userData = await User.findById({ _id: userSession })
     userData.removefromWishlist(productId)
     res.redirect('/loadWishlist')
 }
@@ -53,7 +53,7 @@ const addToCartremovefromwishlist = async (req, res) => {
             const userData = await User.findById({ _id: userSession })
             const productData = await products.findById({ _id: productId })
             userSession = req.session
-            const userDatas = await User.findById({ _id: userSession.user_id })
+            const userDatas =  await User.findById({ _id: userSession })
             userDatas.addToCart(productData)
             res.redirect('/loadWishlist')
             // res.render('details',{ user: req.session.user,message:"product added to cart !",detail: details, related: product })
