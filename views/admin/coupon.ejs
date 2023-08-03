@@ -24,25 +24,28 @@
       <% if(coupon){%>
         <% for(i=1;i<=coupon.length;i++){ %>
           <tr>
-            <td>
+            <td><br>
               <%=i%>
             </td>
-            <td><%=coupon[i-1].name%></td>
-            <td><%=coupon[i-1].discount%>%</td>
-            <td><%=coupon[i-1].minimumvalue%></td>
-            <td><%=coupon[i-1].maximumvalue%></td>
+            <td><br><%=coupon[i-1].name%></td>
+            <td><br><%=coupon[i-1].discount%>%</td>
+            <td><br><%=coupon[i-1].minimumvalue%></td>
+            <td><br><%=coupon[i-1].maximumvalue%></td>
 
-            <td>
+            <td><br>
+              <div style="display: flex; justify-content: center;">
               <a href="/admin/edit-coupon?id=<%- coupon[i-1]._id %>"><button type="button"
-                  class="btn btn-success">Edit</button></a>
-              <br>
-              <a id="<%-coupon[i-1]._id %>" style="text-decoration: none; color: #00b3b3; background-color: #00b3b31a;"
-                href="/admin/avail-coupon?id=<%- coupon[i-1]._id %>">
+                  class="btn btn-success btn-sm">Edit</button></a>
+              &nbsp;
+              <a id="<%-coupon[i-1]._id %>" style="text-decoration: none; color: #00b3b3;"
+                href="/admin/avail-coupon?id=<%- coupon[i-1]._id %>"><button type="button"
+                class="btn btn-secondary btn-sm">
                 <% if(coupon[i-1].isAvailable){ %>Unlist<%}else{%>list<%}%>
-              </a><br>
-              <a href="/admin/delete-coupon?id=<%- coupon[i-1]._id %>" class="btn btn-danger p-1 border-1.5"
+              </button></a>
+              &nbsp;
+              <a href="/admin/delete-coupon?id=<%- coupon[i-1]._id %>" class="btn btn-danger btn-sm"
                 type="button">Delete</a>
-
+              </div><br>
             </td>
           </tr>
           <%}}%>

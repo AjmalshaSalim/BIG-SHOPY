@@ -24,45 +24,58 @@
                     <% if(products.length>=0){ %>
                         <tr>
                             <th>
+                                <br>
                                 <%= i %>
+                                    <br>
                             </th>
-                            <td>
+                            <td><br>
                                 <%= products[i-1].name %>
+                                    <br>
                             </td>
-                            <td>
+                            <td><br>
                                 <%= products[i-1].stock %>
+                                    <br>
                             </td>
-                            <td>
+                            <td><br>
                                 <%= products[i-1].category %>
+                                    <br>
                             </td>
 
-                            <td>
+                            <td><br>
                                 <%= products[i-1].price %>
+                                    <br>
                             </td>
 
                             <td>
                             </td>
 
                             <td>
+
                                 <% if(products[i-1].image) { %>
                                     <img src="/uploads/<%= products[i-1].image[0] %>" width="100vw" height="100vh">
                                     <% }else{ %>
                                         Image Not Found
                                         <% } %>
+                                            <br>
                             </td>
-                            <td>
-                                <a class="text-success" href="/admin/edit-product?id=<%= products[i-1]._id %>"><i
-                                        style="color: green;" class="m-r-5 mdi mdi-border-color"></i>Edit</a><br>
+                            <td><br>
+                                <div style="display: flex; justify-content: center;">
+                                    <a class="text-success"
+                                        href="/admin/edit-product?id=<%= products[i-1]._id %>"><button
+                                            class="btn btn-success btn-sm">Edit</button></a><br>
+                                    &nbsp;
+                                    <a onclick="return confirm('do you want to delete?')" class="text-danger"
+                                        href="/admin/delete-product?id=<%= products[i-1]._id %>"><button
+                                            class="btn btn-danger btn-sm">Delete</button></a><br>
+                                    &nbsp;
 
-                                <a onclick="return confirm('do you want to delete?')" class="text-danger"
-                                    href="/admin/delete-product?id=<%= products[i-1]._id %>"><i style="color: #ff0000;"
-                                        class="m-r-5 mdi mdi-border-color"></i>Delete</a><br>
-
-
-                                <a id="<%-products[i-1]._id %>" style="text-decoration: none; color: black;"
-                                    href="/admin/show-product?id=<%-products[i-1]._id %>">
-                                    <% if(products[i-1].isAvailable){ %>Unlist<%}else{%>list<%}%>
-                                </a>
+                                    <a id="<%-products[i-1]._id %>"
+                                            style="text-decoration: none; color: white;"
+                                            href="/admin/show-product?id=<%-products[i-1]._id %>"><button class="btn btn-secondary btn-sm">
+                                            <% if(products[i-1].isAvailable){ %>Unlist<%}else{%>list<%}%>
+                                        </button></a>
+                                </div>
+                                <br>
                             </td>
 
                         </tr>

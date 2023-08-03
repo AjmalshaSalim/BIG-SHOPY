@@ -23,9 +23,9 @@
         <% for(i=1;i<=banner.length;i++){ %>
           <tr>
             <td>
-              <%=i%>
+              <br><%=i%>
             </td>
-            <td><%=banner[i-1].name%></td>
+            <td><br><%=banner[i-1].name%></td>
             <td>
 
               <% if(banner[i-1].image) { %>
@@ -43,17 +43,21 @@
               <h6>DETAILED : </h6>
               <%=banner[i-1].description2%>
             </td>
-            <td>
+            <td><br>
+              <div style="display: flex; justify-content: center;">
               <a href="/admin/edit-banner?id=<%- banner[i-1]._id %>"><button type="button"
                   class="btn btn-success btn-sm">Edit</button></a>
-                  <br><br>
+                  &nbsp;
               <a id="<%-banner[i-1]._id %>" style="text-decoration: none; color: #ec7676; background-color: #ec76761f;"
-                href="/admin/hide-banner?id=<%- banner[i-1]._id %>">
+                href="/admin/hide-banner?id=<%- banner[i-1]._id %>"><button type="button"
+                class="btn btn-secondary btn-sm">
                 <% if(banner[i-1].is_active){ %>Disable<%}else{%>Enable<%}%>
-                <br><br>
+              </button></a>
+              &nbsp;
                 <a href="/admin/delete-banner?id=<%- banner[i-1]._id %>"><button type="button"
                   class="btn btn-danger btn-sm">Delete</button></a>
               </a>
+            </div>
             </td>
           </tr>
           <%}%>

@@ -40,26 +40,26 @@
                     <% if(orders.length> 0){ %>
                         <% for(let i=1;i<=orders.length; i++){ %>
                             <tr>
-                                <th>
+                                <th><br>
                                     <%= i %>
                                 </th>
-                                <td>
+                                <td><br>
                                     <%= orders[i-1]._id %>
                                 </td>
-                                <td>
+                                <td><br>
                                     <%=orders[i-1].userId.name%>
                                 </td>
-                                <td>
+                                <td><br>
                                     <%= orders[i-1].payment.amount%>
                                 </td>
-                                <td>
+                                <td><br>
                                     <%= orders[i-1].payment.method%>
 
                                 </td>
-                                <td>
+                                <td><br>
                                     <%= orders[i-1].status%>
                                 </td>
-                                <td>
+                                <td><br>
                                     <%= orders[i-1].createdAt.toLocaleDateString()%>
                                 </td>
                                 <td>
@@ -78,7 +78,7 @@
                                         </select>
                                         <input type="hidden" name="orderId" value="<%=orders[i-1]._id%>">
                                         <% if (orders[i-1].status!="returned" &&orders[i-1].status!="cancelled" ){%>
-                                            <br><br> <br>
+                                            <br><br>
                                             <div style="display: flex; justify-content: center;">
                                                 <a class="text-white btn btn-secondary btn-sm"
                                                     href="/admin/loadOrderDetails?id=<%=orders[i-1]._id%>">View</a>

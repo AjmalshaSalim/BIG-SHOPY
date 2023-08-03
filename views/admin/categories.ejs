@@ -22,18 +22,21 @@
       <% for(i=1;i<=category.length;i++){ %>
         <tr>
           <td>
+            <br>
             <%=i%>
+            <br>
           </td>
-          <td><%=category[i-1].name%></td>
-          <td>
+          <td><br><%=category[i-1].name%><br></td>
+          <td><br>
             <a href="/admin/edit-category?id=<%- category[i-1]._id %>"><button type="button"
-                class="btn btn-success">edit</button></a>
+                class="btn btn-success btn-sm">Edit</button></a>
             <!-- <button class="btn  btn-outline-danger" data-toggle="modal" data-target="#exampleModalCenter"
                     onclick="del('<%- category[i-1]._id %>')"></button> -->
-            <a id="<%-category[i-1]._id %>" style="text-decoration: none; color:black;"
+                    <button class="btn btn-secondary btn-sm">
+            <a id="<%-category[i-1]._id %>" style="text-decoration: none; color:white;"
               href="/admin/delete-category?id=<%- category[i-1]._id %>">
-              <% if(category[i-1].is_available){ %>Unlist<%}else{%>list<%}%>
-            </a>
+              <% if(category[i-1].is_available){ %> Unlist <%}else{%>List<%}%></button>
+            </a><br><br>
           </td>
         </tr>
         <%}%>
