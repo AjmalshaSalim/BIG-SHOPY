@@ -23,7 +23,17 @@ const loadHome = async (req, res) => {
         console.log(error.message)
     }
 }
+const loadDetails = async (req, res) => {
 
+    try {
+        const id = req.query.id;
+        const details = await products.findOne({ _id: id })
+        const Product = await products.find({ category: details.category });
+        res.render("details", { user: req.session.user, detail: details, related: Product, message: "" });
+    } catch (error) {
+        console.log(error.message);
+    }
+};
 
 const loginLoad = async (req, res) => {
     try {
@@ -153,17 +163,7 @@ const userLogout = async (req, res) => {
     }
 
 }
-const loadDetails = async (req, res) => {
 
-    try {
-        const id = req.query.id;
-        const details = await products.findOne({ _id: id })
-        const product = await products.find({ category: details.category });
-        res.render("details", { user: req.session.user, detail: details, related: product, message: "" });
-    } catch (error) {
-        console.log(error.message);
-    }
-};
 
 const loadShop = async (req, res) => {
     try {

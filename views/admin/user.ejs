@@ -2,14 +2,14 @@
 
 
 
-  <div class="container">
 
     <br><br>
     <h4 class="text-center text-success">USER DETAILS</h4><br>
 
     <br>
-    <table class="table text-center ">
-      <thead class="thead-light">
+    <table>
+    <table class="table text-center " style="width: 100%;">
+      <thead class="" style="background-color: rgba(0, 0, 0, 0.603); color: white;">
         <tr>
           <th scope="col">NAME</th>
           <th scope="col">EMAIL</th>
@@ -22,9 +22,9 @@
 
           for(let i=0;i<users.length;i++){ %>
             <tr>
-              <td>
+              <td><br>
                 <%= users[i].name %>
-              </td>
+              <br></td>
               <td>
                 <%= users[i].email %>
               </td>
@@ -34,10 +34,10 @@
               <td>
 
                 <% if(users[i].is_verified){%>
-                  <button class="btn  btn-danger" data-toggle="modal" data-target="#block"
+                  <button class="btn  btn-danger btn-sm" data-toggle="modal" data-target="#block"
                     onclick="block('<%- users[i]._id %>')">Block</button>
                   <% } else{%>
-                    <button class="btn  btn-danger" data-toggle="modal" data-target="#unBlock"
+                    <button class="btn  btn-danger btn-sm" data-toggle="modal" data-target="#unBlock"
                       onclick="block('<%- users[i]._id %>')">UnBlock</button>
                     <%}%>
                       <a id="<%- users[i]._id %>" style="text-decoration: none; color: #ffff; display: none;"
@@ -51,7 +51,7 @@
               <% } %>
       </tbody>
     </table>
-  </div>
+  </table>
 
   <div class="modal fade" id="block" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">

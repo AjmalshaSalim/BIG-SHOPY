@@ -8,7 +8,7 @@
     <br>
 
     <table class="table text-center">
-      <thead>
+      <thead style="background-color: rgba(0, 0, 0, 0.603); color: white;">
         <tr>
           <th scope="col">SL NO</th>
           <th scope="col">BANNER NAME</th>
@@ -45,14 +45,14 @@
             </td>
             <td>
               <a href="/admin/edit-banner?id=<%- banner[i-1]._id %>"><button type="button"
-                  class="btn btn-success">Edit</button></a>
-                  <br>
+                  class="btn btn-success btn-sm">Edit</button></a>
+                  <br><br>
               <a id="<%-banner[i-1]._id %>" style="text-decoration: none; color: #ec7676; background-color: #ec76761f;"
                 href="/admin/hide-banner?id=<%- banner[i-1]._id %>">
                 <% if(banner[i-1].is_active){ %>Disable<%}else{%>Enable<%}%>
-                <br>
+                <br><br>
                 <a href="/admin/delete-banner?id=<%- banner[i-1]._id %>"><button type="button"
-                  class="btn btn-danger">Delete</button></a>
+                  class="btn btn-danger btn-sm">Delete</button></a>
               </a>
             </td>
           </tr>
@@ -74,8 +74,8 @@
             <p>Are you sure want to delete ?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save()">delete</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">cancel</button>
+            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="save()">delete</button>
           </div>
         </div>
       </div>

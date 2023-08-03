@@ -22,7 +22,7 @@
         <br><br>
         <div style="width: 100%; text-align: center; display: flex;justify-content: center;">
             <table class="table table-striped table-hover " id="ordersTable" style="max-width: 100%;">
-                <thead>
+                <thead style="background-color: rgba(0, 0, 0, 0.582); color: white;">
                     <tr>
                         <th scope="col">SL NO</th>
                         <th scope="col">ORDER ID</th>
@@ -64,25 +64,29 @@
                                 </td>
                                 <td>
                                     <br>
-                                    <a class="text-white btn btn-secondary"
-                                        href="/admin/loadOrderDetails?id=<%=orders[i-1]._id%>">View</a><br>
-                                    
+
+
                                     <form action="/admin/updateStatus" method="post" style="border: aqua;">
                                         <select name="status" class="browser-default custom-select"
-                                            style="font-size:medium; background-color:#00000063; border-radius: 7%;border-color: #ffffff;color: white;">
+                                            style="font-size:larger;  font-family:Verdana, Geneva, Tahoma, sans-serif;background-color:transparent;
+                                             border: 2px solid rgb(2, 161, 167);color: rgb(2, 161, 167); outline-color: rgb(2, 161, 167);">
                                             <option style="background-color: #b6b900;"><%=orders[i-1].status%></option>
-                                            <option style="background-color: rgba(255, 0, 0, 0.603);">cancelled</option>
-                                            <option style="background-color: rgba(1, 185, 1, 0.562);">Delivered</option>
-                                            <option style="background-color: #00b3b3;">Shipped</option>
+                                            <option style="background-color: rgba(255, 0, 0, 0.438);">cancelled</option>
+                                            <option style="background-color: rgba(1, 185, 1, 0.301);">Delivered</option>
+                                            <option style="background-color: #00b3b37c;">Shipped</option>
                                             <option style="background-color: #00b3b375;">Packed</option>
                                         </select>
                                         <input type="hidden" name="orderId" value="<%=orders[i-1]._id%>">
                                         <% if (orders[i-1].status!="returned" &&orders[i-1].status!="cancelled" ){%>
+                                            <br><br> <br>
+                                            <div style="display: flex; justify-content: center;">
+                                                <a class="text-white btn btn-secondary btn-sm"
+                                                    href="/admin/loadOrderDetails?id=<%=orders[i-1]._id%>">View</a>
+                                                    &nbsp;
+                                                <button class="btn btn-success btn-sm" type="submit"
+                                                    style="color: white;">Update</button>
+                                            </div>
                                             <br>
-                                            <button class="btn btn-success" type="submit"
-                                                style="color: white;">Update</button>
-                                                <br>
-                                                <br>
                                             <%}else{%>
                                                 <%}%>
                                     </form>
