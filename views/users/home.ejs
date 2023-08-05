@@ -168,13 +168,20 @@
                   <p class="mb-0"><%=product[i].description%></p>
                 </div>
                   <div style=" display: flex; justify-content: center; height: 60px;">
+                    
                   <a href="/addWishlist?id=<%=product[i]._id%>"> <button class="btn btn-dark px-3" style="font-size: small;"><i
                     class="fa fa-Wishlist mr-1"></i> Add To
                 Wishlist</button></a>&nbsp;&nbsp;
+
+                <% if(product[i].stock>0){%>
                 <a href="/addToCart?id=<%=product[i]._id%>"> <button class="btn btn-primary px-3" style="font-size: small;"><i
                     class="fa fa-shopping-cart mr-1"></i> Add To
                 Cart</button></a>
-              
+              <% }else{ %>
+                <a href="#"> <button class="btn btn-danger px-3" style="font-size: small;"><i
+                  class="fa fa-shopping-cart mr-1"></i> Out Of
+              Stock</button></a>
+                <% } %>
                 </div>
               
             </div>
