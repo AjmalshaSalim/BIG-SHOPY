@@ -253,6 +253,7 @@ const BlockUser = async (req, res) => {
     const id = req.query.id;
     const userData = await User.findOne({ _id: id });
     if (userData.is_verified) {
+      
       await User.findByIdAndUpdate({ _id: id }, { $set: { is_verified: 0 } }); console.log("blocked");
     }
     else { await User.findByIdAndUpdate({ _id: id }, { $set: { is_verified: 1 } }); console.log("unblocked"); }

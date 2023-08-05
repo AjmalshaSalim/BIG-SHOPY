@@ -8,14 +8,14 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="login-content">
-                    <form action="/register" method="post" id="signup-form" class="signup-form">
+                    <form action="/register" method="post" id="signup-form" class="signup-form" onsubmit="return validate()">
                         <h2 class="form-title">Create account</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="name" id="name" placeholder="Name"
                                 onchange="nameValidate()" required />
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-input" name="mobile" id="mobile"
+                            <input type="number" class="form-input" name="mno" id="number"
                                 placeholder="Mobile Number" onchange="numberValidate()" required />
                         </div>
                         <div class="form-group">

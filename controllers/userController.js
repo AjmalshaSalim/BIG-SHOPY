@@ -2,6 +2,7 @@ const { requecouponModelst } = require('http');
 const User = require('../models/userModel')
 const address = require("../models/addressModel");
 const bcrypt = require('bcrypt');
+const sms = require('../middleware/smsValidation');
 const products = require("../models/productModel");
 const Category = require('../models/category');
 const banner = require("../models/bannerModel");
@@ -55,8 +56,8 @@ const loadRegister = async (req, res) => {
 
 const againOtp = async (req, res) => {
     try {
-        newOtp = 1234;
-        // newOtp = sms.sendMessage(req.body.phonenumber, res);
+        
+         newOtp = sms.sendMessage(req.body.phonenumber, res);
         console.log(newOtp);
         res.send({ newOtp });
     } catch (error) {
@@ -77,15 +78,14 @@ const loadOtp = async (req, res) => {
             user = new User({
                 name: req.body.name,
                 email: req.body.email,
-                mobile: req.body.mobile,
+                mobile: req.body.mno,
                 password: spassword,
                 is_admin: 0,
             });
-            newOtp = 9946;
 
-            // newOtp = sms.sendMessage(req.body.mno, res);
+             newOtp = sms.sendMessage(req.body.mno, res);
             console.log(newOtp + "boomer");
-            res.render("otpPage", { otp: newOtp, mobile: req.body.mobile, message: '', postive_message: '' })
+            res.render("otpPage", { otp: newOtp, mobno: req.body.mno, message: '', postive_message: '' })
 
         }
     } catch (error) {
@@ -117,6 +117,8 @@ const verifyOtp = async (req, res) => {
         console.log(error.message);
     }
 }
+
+
 
 const verifyLogin = async (req, res) => {
     try {
