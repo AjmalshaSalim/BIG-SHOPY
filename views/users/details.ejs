@@ -84,22 +84,30 @@
 
                             </div>
 
-                            <a href="/addWishlist?id=<%=detail._id%>"> <button class="btn btn-primary px-3" style="background-color: rgba(0, 0, 0, 0.582);border-inline-color:rgba(0, 0, 0, 0.582);"><i
-                                class="fa fa-Wishlist mr-1"></i> Add To
-                            Wishlist</button></a>&nbsp;&nbsp;
+                           
 
                             <% if(detail.stock<=5){%>
                                 <% if(detail.stock<1){%>
-                                    <h6 style="color: red;">Stock Out!!</h6>
-                                    <a href="/addToCart?id=<%=detail._id%>"> <button class="btn btn-primary px-3"
-                                            disabled><i class="fa fa-shopping-cart mr-1 "></i> Add To
-                                            Cart </button></a>
+                                    <h6 style="color: red;">Out Of Stock !!</h6>
+                                    <br>
+                                    <a href="/addWishlist?id=<%=detail._id%>"> <button class="btn btn-primary px-3" style="background-color: rgba(0, 0, 0, 0.582);border-inline-color:rgba(0, 0, 0, 0.582);"><i
+                                        class="fa fa-Wishlist mr-1"></i> Add To
+                                    Wishlist</button></a>&nbsp;&nbsp;
+                                    <a href="#"> <button class="btn btn-warning px-3"style="opacity: 100%;"
+                                            disabled><i class="fa fa-shopping-cart mr-1 "></i>Coming Soon.. </button></a>
                                     <%}else{%>
                                         <h6 style="color: red;">Only <%=detail.stock%> left</h6>
+                                        <br>
+                                        <a href="/addWishlist?id=<%=detail._id%>"> <button class="btn btn-primary px-3" style="background-color: rgba(0, 0, 0, 0.582);border-inline-color:rgba(0, 0, 0, 0.582);"><i
+                                            class="fa fa-Wishlist mr-1"></i> Add To
+                                        Wishlist</button></a>&nbsp;&nbsp;
                                         <a href="/addToCart?id=<%=detail._id%>"> <button class="btn btn-primary px-3"><i
                                                     class="fa fa-shopping-cart mr-1"></i> Add To
                                                 Cart</button></a>
                                         <%}}else{%>
+                                            <a href="/addWishlist?id=<%=detail._id%>"> <button class="btn btn-primary px-3" style="background-color: rgba(0, 0, 0, 0.582);border-inline-color:rgba(0, 0, 0, 0.582);"><i
+                                                class="fa fa-Wishlist mr-1"></i> Add To
+                                            Wishlist</button></a>&nbsp;&nbsp;
                                             <a href="/addToCart?id=<%=detail._id%>"> <button
                                                     class="btn btn-primary px-3"><i
                                                         class="fa fa-shopping-cart mr-1"></i> Add To
@@ -184,10 +192,15 @@
 
                                                 </p>
 
+                                                <% if(related[i].stock<1){%>
+                                                <a href="#"> <button class="btn btn-warning px-3"style="opacity: 100%;"
+                                                    disabled><i class="fa fa-shopping-cart mr-1 "></i>Coming Soon.. </button></a>
+                                                    <% }else{ %>
                                                 <a href="/addToCart?id=<%=detail._id%>"> <button
                                                         class="btn btn-primary px-3"><i
                                                             class="fa fa-shopping-cart mr-1"></i> Add To
                                                         Cart</button></a>
+                                                        <% } %>
 
                                                 
                                             </div>

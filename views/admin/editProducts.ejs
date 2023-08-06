@@ -81,8 +81,8 @@
         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
           <input type="hidden" value="<%=products._id%>" id="pId" />
 
-          <button type="submit" value="Register" class="btn btn-success btn-lg">Save</button>&ensp;
-          <a href="/admin/product" class="btn btn-secondary btn-lg">Go Back</a>
+          <button type="submit" value="Register" class="btn btn-success btn-sm">Save</button>&ensp;
+          <a href="/admin/product" class="btn btn-secondary btn-sm">Go Back</a>
         </div>
     </fieldset>
   </form>
@@ -106,8 +106,8 @@
     function cut(id) {
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
-          confirmButton: 'btn btn-success',
-          cancelButton: 'btn btn-danger'
+          confirmButton: 'btn btn-success btn-sm',
+          cancelButton: 'btn btn-danger btn-sm'
         },
         buttonsStyling: false
       })

@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", true);
-mongoose.connect("mongodb://127.0.0.1:27017/BIG-SHOPY");
+mongoose.connect("mongodb+srv://Ajmalsha:6v6crnx2ev@atlascluster.ckkumek.mongodb.net/BIG-SHOPY?retryWrites=true&w=majority");
 
 const connection = mongoose.connection;
 connection.once('open', () => {

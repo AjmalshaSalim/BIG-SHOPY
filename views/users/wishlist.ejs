@@ -56,9 +56,15 @@
                                         <td class="align-middle">
                                             <%=key.productId.price%>
                                         </td>
-                                        <td class="align-middle"><a
-                                                href="/adCartremoveWishlist?id=<%=key.productId._id%>"><button
+                                        <% if(key.productId.stock<1){ %>
+                                            <td class="align-middle">
+                                                <a href="#"><button
+                                                        class="btn btn-sm btn-warning" style="opacity: 100%;">Stock Out</button></a></td>
+                                            <% }else{%>
+                                        <td class="align-middle">
+                                            <a href="/adCartremoveWishlist?id=<%=key.productId._id%>"><button
                                                     class="btn btn-sm btn-primary">Add</button></a></td>
+                                                    <% } %>
                                         <td class="align-middle"><a
                                                 href="/deleteWishlist?id=<%=key.productId._id%>"><button
                                                     class="btn btn-sm btn-danger">Remove</button></a></td>

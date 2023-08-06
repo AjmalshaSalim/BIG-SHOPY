@@ -70,12 +70,15 @@ const addAddProducts = async (req, res) => {
         name: req.body.pName,
         price: pPrice, // Use the parsed pPrice value
         stock: pStock, // Use the parsed pStock value
-        rating: req.body.pRating,
         category: req.body.pCategory,
         description: req.body.pDescription,
+        image: req.files.map((x) => x.filename),
       });
 
-      // Rest of the code remains the same...
+      const productData = await productdetails.save();
+      if (productData) {
+        res.redirect("/admin/product");
+      }
 
     } catch (error) {
       console.log(error.message);
