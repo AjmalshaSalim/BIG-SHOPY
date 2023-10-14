@@ -19,7 +19,7 @@
     position: relative;
     -ms-touch-action: pan-Y;
     -moz-backface-visibility: hidden;
-margin-left: 0;
+    margin-left: 0;
 }
 
 .owl-carousel .owl-stage:after {

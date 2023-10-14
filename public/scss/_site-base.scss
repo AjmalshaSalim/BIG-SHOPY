@@ -4,16 +4,20 @@ body {
 	font-weight: 300;
 	font-size: 16px;
 }
-::-moz-selection { 
+
+::-moz-selection {
 	background: $black;
 	color: $white;
 }
-::selection { 
+
+::selection {
 	background: $black;
 	color: $white;
 }
+
 a {
 	transition: .3s all ease;
+
 	&:hover {
 		text-decoration: none;
 	}
@@ -27,7 +31,7 @@ a {
 .site-wrap {
 	&:before {
 		transition: .3s all ease-in-out;
-		background: rgba(0,0,0,.6);
+		background: rgba(0, 0, 0, .6);
 		content: "";
 		position: absolute;
 		z-index: 2000;
@@ -38,13 +42,14 @@ a {
 		opacity: 0;
 		visibility: hidden;
 	}
+
 	.offcanvas-menu & {
 		position: absolute;
 		height: 100%;
 		width: 100%;
 		z-index: 2;
 		overflow: hidden;
-		
+
 		&:before {
 			opacity: 1;
 			visibility: visible;
@@ -55,45 +60,59 @@ a {
 .btn {
 	text-transform: uppercase;
 	position: relative;
-	transition: .2s all ease-in-out!important;
+	transition: .2s all ease-in-out !important;
 	top: 0;
 	letter-spacing: .05em;
-	&:hover, &:active, &:focus {
+
+	&:hover,
+	&:active,
+	&:focus {
 		outline: none;
-		box-shadow: none!important;
+		box-shadow: none !important;
 	}
+
 	&.btn-secondary {
 		background-color: lighten($secondary, 45%);
 		border-color: lighten($secondary, 45%);
 		color: $black;
 	}
+
 	&.btn-sm {
-		font-size: 14px!important;
-		padding: 10px 20px!important;
+		font-size: 14px !important;
+		padding: 10px 20px !important;
 	}
+
 	&.btn-primary {
 		font-size: 17px;
 		font-weight: 300;
 		letter-spacing: .2em;
 	}
+
 	&:hover {
-		box-shadow: 0 5px 20px -7px rgba(0,0,0,.9)!important;
+		box-shadow: 0 5px 20px -7px rgba(0, 0, 0, .9) !important;
 		top: -2px;
 	}
-	
+
 }
+
 .form-control {
 	height: 43px;
-	&:active, &:focus {
+
+	&:active,
+	&:focus {
 		border-color: $primary;
 	}
-	&:hover, &:active, &:focus {
-		box-shadow: none!important;
+
+	&:hover,
+	&:active,
+	&:focus {
+		box-shadow: none !important;
 	}
 }
 
 .site-section {
 	padding: 2.5em 0;
+
 	@include media-breakpoint-up(md) {
 		padding: 5em 0;
 	}
@@ -107,6 +126,7 @@ a {
 	font-size: 30px;
 	color: $gray-1;
 	position: relative;
+
 	&:before {
 		content: "";
 		left: 0%;
@@ -116,6 +136,7 @@ a {
 		height: 2px;
 		background: $primary;
 	}
+
 	&.text-center {
 		&:before {
 			content: "";
@@ -126,28 +147,32 @@ a {
 			width: 40px;
 			height: 2px;
 			background: $primary;
-		}	
+		}
 	}
-	
+
 }
 
 .border-top {
-	border-top: 1px solid $gray-4!important;
+	border-top: 1px solid $gray-4 !important;
 }
 
 .site-footer {
 	padding: 4em 0;
+
 	ul {
 		li {
 			margin-bottom: 10px;
+
 			a {
 				color: $gray-2;
+
 				&:hover {
 					color: $primary;
 				}
 			}
 		}
 	}
+
 	.footer-heading {
 		font-size: 20px;
 		color: $gray-1;

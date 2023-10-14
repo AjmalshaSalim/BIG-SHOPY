@@ -24,19 +24,46 @@
 }
 
 
-.item:hover{
+.item:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 35px 40px -7px;
     padding-bottom: 20px;
     transform: scale(1.1);
 }
-.container{
+
+.container {
     background: transparent;
 }
-.owl-stage{
+
+.owl-stage {
     margin-left: 15px;
     margin-bottom: 65px;
     overflow: visible;
 }
-.col-md{
+
+.col-md {
     padding-right: 20px;
 }
+
+/* .icon-truck {
+    animation: slidein 3s ease-in-out 1s forwards;
+}
+
+
+@keyframes slidein {
+    0% {
+        margin-left: 40%;
+    }
+
+    50% {
+        margin-left: 10%;
+    }
+
+    70% {
+        margin-left: 10%;
+        transform: rotate(-35deg);
+    }
+    100% {
+        margin-left: 0%;
+        transform: rotate(0deg);
+    }
+} */

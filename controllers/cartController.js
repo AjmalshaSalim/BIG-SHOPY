@@ -25,7 +25,6 @@ const loadCart = async (req, res) => {
 const addToCart = async (req, res) => {
     try {
         const productId = req.query.id;
-        console.log(productId);
         userSession = req.session.user_id;
         if (userSession) {
             const details = await products.findOne({ _id: productId })
@@ -46,13 +45,11 @@ const addToCart = async (req, res) => {
 
 const updateCart = async (req, res) => {
     try {
-        console.log("thisss");
         let { quantity, _id } = req.body
         const userData = await User.findById({ _id: req.session.user_id })
         const productData = await products.findById({ _id: _id })
         const price = productData.price;
         let test = await userData.updateCart(_id, quantity)
-        console.log(test);
         res.json({ test, price })
 
     } catch (error) {

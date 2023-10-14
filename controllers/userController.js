@@ -58,7 +58,6 @@ const againOtp = async (req, res) => {
     try {
         
          newOtp = sms.sendMessage(req.body.phonenumber, res);
-        console.log(newOtp);
         res.send({ newOtp });
     } catch (error) {
         console.log(error.message)
@@ -70,10 +69,8 @@ const loadOtp = async (req, res) => {
     try {
         const verify = await User.findOne({ $or: [{ mobile: req.body.mobile }, { email: req.body.email }] });
         if (verify) {
-            console.log(verify);
             res.render('register', { user: req.session.user, message: "User Already Exists!", postive_message: '' })
         } else {
-            console.log(req.body.mno);
             const spassword = await bcrypt.hash(req.body.password, 10);
             user = new User({
                 name: req.body.name,
@@ -84,7 +81,6 @@ const loadOtp = async (req, res) => {
             });
 
              newOtp = sms.sendMessage(req.body.mno, res);
-            console.log(newOtp + "boomer");
             res.render("otpPage", { otp: newOtp, mobno: req.body.mno, message: '', postive_message: '' })
 
         }
@@ -169,7 +165,6 @@ const userLogout = async (req, res) => {
 
 const loadShop = async (req, res) => {
     try {
-        console.log('dingolfy');
         const categoryData = await Category.find()
         let { search, sort, category, limit, page, ajax } = req.query
         if (!search) {
@@ -242,28 +237,20 @@ const applyCoupon = async (req, res) => {
         console.log(req.body.coupon);
         userdata = await User.findById({ _id: req.session.user_id });
         offerdata = await coupon.findOne({ name: req.body.coupon });
-        // console.log('working');
         if (offerdata) {
-            // console.log('find coupon');
             console.log(offerdata.expiryDate, Date.now());
             const date1 = new Date(offerdata.expiryDate);
             const date2 = new Date(Date.now());
             if (date1.getTime() > date2.getTime()) {
-                // console.log('p4444');
                 if (offerdata.usedBy.includes(req.session.user_id)) {
                     messag = 'coupon already used'
                     console.log(messag);
                 } else {
-                    console.log('eldf');
                     console.log(userdata.cart.totalPrice, offerdata.maximumvalue, offerdata.minimumvalue);
                     if (userdata.cart.totalPrice >= offerdata.minimumvalue) {
-                        console.log('COMMING');
-                        console.log('offerdata.name');
                         await coupon.updateOne({ name: offerdata.name }, { $push: { usedBy: userdata._id } });
-                        console.log('kskdfthg');
                         disc = (offerdata.discount * totalPrice) / 100;
                         if (disc > offerdata.maximumvalue) { disc = offerdata.maximumvalue }
-                        console.log(disc);
                         
                         res.send({ offerdata, disc, state: 1 })
                     } else {
@@ -437,13 +424,11 @@ const placeOrder = async (req, res) => {
             res.render("orderSuccess", { user: req.session.user })
 
         } else if (req.body.payment == "wallet") {
-            console.log("123");
             let walletAmount = parseInt(req.body.walamount);
             let totalAmount = parseInt(req.body.cost)
             req.session.totalWallet = walletAmount;
             console.log(req.session.totalWallet);
             if (walletAmount >= totalAmount) {
-                console.log("asdfdgadgadg");
                 await Norder.save();
                 let userWallet = await User.findOne({ _id: req.session.user_id })
                 let minusAmt = userWallet.wallet - req.body.cost;
@@ -701,9 +686,9 @@ function generateRandomString(length) {
   }
 
 function generateInvoiceNumber() {
-    const prefix = 'INV'; // You can customize the prefix for the invoice number
+    const prefix = 'INV'; 
     const randomString = generateRandomString(6);
-    console.log(randomString) // You can choose the length of the random string portion
+    console.log(randomString) 
     return randomString;
   }
 
@@ -711,10 +696,9 @@ const downloadInvoice = exports.downloadInvoice = async (req, res) => {
   const orderId = req.params.orderId;
   const orderData = await order.findById({_id: orderId});
   console.log(orderData);
-  console.log("Start Downloading PDF")
+  console.log("Downloading PDF")
   if (!orderData.invoiceNumber) {
     const invoiceNumber = generateInvoiceNumber();
-    console.log(invoiceNumber);
     orderData.invoiceNumber = invoiceNumber;
     await orderData.save();
   } 

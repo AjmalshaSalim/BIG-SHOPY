@@ -29,10 +29,8 @@ const loadAddProducts = async (req, res) => {
 const updateImage = async (req, res) => {
   try {
     let { pId, img } = req.body
-    console.log(pId, img);
     await product.updateOne({ _id: pId }, { $pull: { image: img } })
     const productData = product.findOne({ _id: pId })
-    console.log(productData);
     res.send({ newImage: productData.image });
   } catch (error) {
     console.log(error.message);
@@ -109,13 +107,11 @@ const showEditProduct = async (req, res) => {
 };
 const editProduct = async (req, res) => {
   try {
-    console.log(req.files);
     if (req.files.length != 0) {
       const productDetails = await product.findOne({ _id: req.query.id })
       const oldImg = productDetails.image
       const newImg = req.files.map((x) => x.filename)
       const images = oldImg.concat(newImg)
-      console.log(images);
       productt = await product.updateOne({ _id: req.query.id }, {
         $set: {
           name: req.body.pName,
@@ -138,7 +134,7 @@ const editProduct = async (req, res) => {
           category: req.body.pCategory,
         }
       })
-    } console.log(productt);
+    } 
     const productData = await product.find()
     if (productData) {
       res.render("products", {

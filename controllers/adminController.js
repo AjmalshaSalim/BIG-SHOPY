@@ -119,12 +119,12 @@ const loadDashboard = async (req, res) => {
     const sales = key2.reduce((value, number) => {
       return value + number;
     }, 0)
-    let totalRevenue =0
-    for(let orders of order){
-       totalRevenue += orders.products.totalPrice;
-     }
+    let totalRevenue = 0
+    for (let orders of order) {
+      totalRevenue += orders.products.totalPrice;
+    }
     const userData = await User.findById({ _id: req.session.admin_id });
-    res.render("home", { admin: userData, key1, key2, pds, qty, sales,totalRevenue});
+    res.render("home", { admin: userData, key1, key2, pds, qty, sales, totalRevenue });
   } catch (error) {
     console.log(error.message);
   }
@@ -181,12 +181,11 @@ const addCategoriesredir = async (req, res) => {
 const deleteCategory = async (req, res) => {
   try {
     const id = req.query.id;
-    console.log(id);
     const categoryData = await category.findOne({ _id: id });
     if (categoryData.is_available) {
-      await category.findByIdAndUpdate({ _id: id }, { $set: { is_available: 0 } }); console.log("hidden");
+      await category.findByIdAndUpdate({ _id: id }, { $set: { is_available: 0 } });
     }
-    else { await category.findByIdAndUpdate({ _id: id }, { $set: { is_available: 1 } }); console.log("unhidden"); }
+    else { await category.findByIdAndUpdate({ _id: id }, { $set: { is_available: 1 } }); }
     res.redirect("/admin/category");
   } catch (error) {
     console.log(error);
@@ -196,7 +195,6 @@ const editCategory = async (req, res) => {
   try {
     e_id = req.query.id;
     const catagoryDetail = await category.findOne({ _id: e_id })
-    console.log(catagoryDetail);
     res.render("editCategories", { category: catagoryDetail, message: "" });
   } catch (error) {
     console.log(error.message);
@@ -253,10 +251,10 @@ const BlockUser = async (req, res) => {
     const id = req.query.id;
     const userData = await User.findOne({ _id: id });
     if (userData.is_verified) {
-      
-      await User.findByIdAndUpdate({ _id: id }, { $set: { is_verified: 0 } }); console.log("blocked");
+
+      await User.findByIdAndUpdate({ _id: id }, { $set: { is_verified: 0 } });
     }
-    else { await User.findByIdAndUpdate({ _id: id }, { $set: { is_verified: 1 } }); console.log("unblocked"); }
+    else { await User.findByIdAndUpdate({ _id: id }, { $set: { is_verified: 1 } }); }
     res.redirect("/admin/user");
   } catch (error) {
     console.log(error);
@@ -311,8 +309,7 @@ const updateStatus = async (req, res) => {
   }
 }
 const sortOrder = async (req, res) => {
-  let { start, end } = req.body
-  console.log(start, end);
+  let { start, end } = req.body;
   const allOrders = await orders.find({
     createdAt: { $gte: start, $lte: end }
   }).populate("userId");

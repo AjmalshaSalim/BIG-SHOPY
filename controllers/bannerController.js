@@ -55,9 +55,9 @@ const hideBanner = async (req, res) => {
     console.log(id);
     const bannerData = await banner.findOne({ _id: id });
     if (bannerData.is_active) {
-      await banner.findByIdAndUpdate({ _id: id }, { $set: { is_active: 0 } }); console.log("hidden");
+      await banner.findByIdAndUpdate({ _id: id }, { $set: { is_active: 0 } });
     }
-    else { await banner.findByIdAndUpdate({ _id: id }, { $set: { is_active: 1 } }); console.log("unhidden"); }
+    else { await banner.findByIdAndUpdate({ _id: id }, { $set: { is_active: 1 } }); }
     res.redirect("/admin/banner");
   } catch (error) {
     console.log(error.message);

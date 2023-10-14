@@ -7,8 +7,8 @@ const multer = require("../middleware/multer")
 const auth = require("../middleware/adminAuth");
 const adminController = require("../controllers/adminController");
 const productController = require("../controllers/productController");
-const couponController=require("../controllers/couponController");
-const bannerController=require("../controllers/bannerController");
+const couponController = require("../controllers/couponController");
+const bannerController = require("../controllers/bannerController");
 
 admin_route.use(session({
   secret: config.sessionSecret,
@@ -69,39 +69,39 @@ admin_route.get('/dashboard', adminController.adminDashboard);
 
 admin_route.get('/block-user', adminController.BlockUser);
 
-admin_route.get("/banner",bannerController.loadBanner);
+admin_route.get("/banner", bannerController.loadBanner);
 
-admin_route.get("/add-Banners",bannerController.loadAddBanner);
+admin_route.get("/add-Banners", bannerController.loadAddBanner);
 
-admin_route.post("/add-Banners",multer.uploads.array('bImage',3),bannerController.addBanner);
+admin_route.post("/add-Banners", multer.uploads.array('bImage', 3), bannerController.addBanner);
 
-admin_route.get("/hide-banner",bannerController.hideBanner)
+admin_route.get("/hide-banner", bannerController.hideBanner)
 
-admin_route.get("/edit-banner",bannerController.editBanner);
+admin_route.get("/edit-banner", bannerController.editBanner);
 
-admin_route.post("/edit-banner",multer.uploads.array('bImage',3),bannerController.editModifyBanner);
+admin_route.post("/edit-banner", multer.uploads.array('bImage', 3), bannerController.editModifyBanner);
 
-admin_route.get("/delete-Banner",bannerController.deleteBanner);
+admin_route.get("/delete-Banner", bannerController.deleteBanner);
 
-admin_route.get("/loadCoupon",couponController.loadCoupon);
+admin_route.get("/loadCoupon", couponController.loadCoupon);
 
-admin_route.get("/addCoupon",couponController.addCoupon);
+admin_route.get("/addCoupon", couponController.addCoupon);
 
-admin_route.post("/addCoupon",couponController.addNewCoupon);
+admin_route.post("/addCoupon", couponController.addNewCoupon);
 
-admin_route.get("/avail-coupon",couponController.availCoupon);
+admin_route.get("/avail-coupon", couponController.availCoupon);
 
-admin_route.get("/edit-coupon",couponController.editCoupon);
+admin_route.get("/edit-coupon", couponController.editCoupon);
 
-admin_route.post("/edit-coupon",couponController.editUpdateCoupon);
+admin_route.post("/edit-coupon", couponController.editUpdateCoupon);
 
-admin_route.get("/delete-coupon",couponController.deleteCoupon);
+admin_route.get("/delete-coupon", couponController.deleteCoupon);
 
-admin_route.get("/loadOrderDetails",adminController.viewOrderDetails);
+admin_route.get("/loadOrderDetails", adminController.viewOrderDetails);
 
-admin_route.post('/updateOrder',adminController.sortOrder);
+admin_route.post('/updateOrder', adminController.sortOrder);
 
-admin_route.post("/updateStatus",adminController.updateStatus);
+admin_route.post("/updateStatus", adminController.updateStatus);
 
 admin_route.get('*', function (req, res) {
   res.redirect('/admin');

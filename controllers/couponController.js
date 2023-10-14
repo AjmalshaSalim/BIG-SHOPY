@@ -52,7 +52,6 @@ const deleteCoupon = async (req, res) => {
     const id = req.query.id;
     const coupData = await coupon.deleteOne({ _id: id })
     res.redirect("/admin/loadCoupon")
-    console.log(coupData);
   } catch (error) {
     console.log(error.message);
   }
@@ -77,7 +76,6 @@ const availCoupon = async (req, res) => {
 const editCoupon = async (req, res) => {
   try {
     const id = req.query.id;
-    console.log(id);
     const couponDetail = await coupon.findOne({ _id: id });
     res.render("editCoupon", { coupon: couponDetail, message: "" })
   } catch (error) {
@@ -94,7 +92,6 @@ const editUpdateCoupon = async (req, res) => {
     id = req.body.id;
     const search = await coupon.findOne({ name: req.body.coupName });
     if (search) {
-      console.log("Matching");
       const coupaData = await coupon.findOne({ _id: id })
       res.render("editCoupon", { message: "Coupon Already Exists", coupon: coupaData });
     } else {

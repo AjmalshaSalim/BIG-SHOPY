@@ -1,5 +1,5 @@
 var current = null;
-document.querySelector('#email').addEventListener('focus', function(e) {
+document.querySelector('#email').addEventListener('focus', function (e) {
   if (current) current.pause();
   current = anime({
     targets: 'path',
@@ -15,7 +15,7 @@ document.querySelector('#email').addEventListener('focus', function(e) {
     }
   });
 });
-document.querySelector('#password').addEventListener('focus', function(e) {
+document.querySelector('#password').addEventListener('focus', function (e) {
   if (current) current.pause();
   current = anime({
     targets: 'path',
@@ -31,7 +31,7 @@ document.querySelector('#password').addEventListener('focus', function(e) {
     }
   });
 });
-document.querySelector('#submit').addEventListener('focus', function(e) {
+document.querySelector('#submit').addEventListener('focus', function (e) {
   if (current) current.pause();
   current = anime({
     targets: 'path',
