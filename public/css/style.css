@@ -4,6 +4,9 @@ body {
   color: #8c92a0;
   font-weight: 300;
   font-size: 16px; }
+body::-webkit-scrollbar {
+  display: none; 
+}
 
 ::-moz-selection {
   background: #000;

@@ -1,0 +1,42 @@
+.block-4 {
+    height: 300px;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+
+.item {
+    background-color: white;
+    height: 620px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s all;
+    margin-left: 15px;
+}
+
+.img-fluid {
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.item:hover{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 35px 40px -7px;
+    padding-bottom: 20px;
+    transform: scale(1.1);
+}
+.container{
+    background: transparent;
+}
+.owl-stage{
+    margin-left: 15px;
+    margin-bottom: 65px;
+    overflow: visible;
+}
+.col-md{
+    padding-right: 20px;
+}
