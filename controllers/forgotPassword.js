@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 
 const loadForgotPassword = async (req, res) => {
     try {
-        res.render("forgotpassword")
+        res.render("forgotPassword")
     } catch (error) {
         console.log(error.message);
     }
