@@ -6,9 +6,9 @@ forgot_Password.set('views', './views/users');
 
 forgot_Password.use(express.static('public'));
 
-forgot_Password.get("/forgot-P", forgotP.loadForgotPassword);
+forgot_Password.get("/forgot-p", forgotP.loadForgotPassword);
 
-forgot_Password.post("/forgot-P", forgotP.loadVeriftyForgotPassword);
+forgot_Password.post("/forgot-p", forgotP.loadVeriftyForgotPassword);
 
 forgot_Password.post("/fnewPassword", forgotP.verifyOtp);
 
