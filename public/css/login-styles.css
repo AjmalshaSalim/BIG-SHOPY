@@ -74,7 +74,11 @@ list-type-ulli {
   font-family: 'Montserrat';
   font-style: italic;
   font-weight: 900;
-  src: url("../fonts/montserrat/montserrat-v12-latin-900.ttf"), url("../fonts/montserrat/montserrat-v12-latin-900.eot") format("embedded-opentype"), url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"), url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"), url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype");
+  src: url("../fonts/montserrat/montserrat-v12-latin-900.ttf"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.eot") format("embedded-opentype"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"),
+    url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype");
 }
 
 a:focus,
@@ -231,7 +235,7 @@ body {
 }
 
 .login-content {
-  background: #fff;
+  background: white;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;

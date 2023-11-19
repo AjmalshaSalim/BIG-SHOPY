@@ -13,8 +13,6 @@ user_route.get("/", auth.isLogout, userController.loadHome);
 
 user_route.get("/home", userController.loadHome);
 
-// user_route.get('/login', userController.loginLoad);
-
 user_route.get("/register", userController.loadRegister);
 
 user_route.get("/login", auth.isLogout, userController.loginLoad);
