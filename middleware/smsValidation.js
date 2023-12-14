@@ -10,8 +10,7 @@ const sendMessage = function (mobile, res, next) {
     numbers: [mobile],
   };
   //send this message
-  fast2sms
-    .sendMessage(options)
+  fast2sms.sendMessage(options)
     .then((response) => {
       console.log("otp sent successfully");
     })

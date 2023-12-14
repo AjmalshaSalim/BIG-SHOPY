@@ -11,8 +11,9 @@ const loadCart = async (req, res) => {
 
             const userData = await User.findById({ _id: userSession })
             const completeUser = await userData.populate('cart.item.productId')
+            const cartLength= userData.cart.item.length ;
 
-            res.render("cart", { user: req.session.user, cartProducts: completeUser.cart, });
+            res.render("cart", { user: req.session.user, cartProducts: completeUser.cart,cartLength:cartLength });
 
         } else {
             res.redirect("/login");

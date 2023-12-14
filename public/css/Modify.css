@@ -7,27 +7,34 @@
 
 .item {
     background-color: white;
-    height: 620px;
+    height: 560px;
     border-radius: 20px;
     overflow: hidden;
     transition: 0.3s all;
     margin-left: 15px;
+    cursor: pointer;
 }
 
 .img-fluid {
     height: 300px;
     width: 300px;
     border-radius: 20px;
-    padding-top: 15px;
     padding-left: 20px;
     padding-right: 20px;
 }
+.inside{
 
-
-.item:hover {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 35px 40px -7px;
+    height: 200px;
+    overflow: hidden;
+}
+.img-fluid:hover {
     padding-bottom: 20px;
     transform: scale(1.1);
+    transition: ease-in-out;
+    transition-duration: 1000ms;
+}
+.item:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 35px 40px -7px;
 }
 
 .container {
@@ -44,26 +51,22 @@
     padding-right: 20px;
 }
 
-/* .icon-truck {
-    animation: slidein 3s ease-in-out 1s forwards;
+.Description{
+    animation: slidein 2s ease-in-out 1s forwards;
 }
 
 
 @keyframes slidein {
     0% {
-        margin-left: 40%;
-    }
-
-    50% {
-        margin-left: 10%;
-    }
-
-    70% {
-        margin-left: 10%;
-        transform: rotate(-35deg);
+        margin-left: 100%;
     }
     100% {
         margin-left: 0%;
-        transform: rotate(0deg);
     }
-} */
+}
+
+
+.DescriptionText{
+      text-align: justify;
+
+}

@@ -59,7 +59,7 @@
                     <li>
                       <a href="/loadCart" class="site-cart">
                         <span class="icon icon-shopping_cart"></span>
-                        <span class="count">{cartProducts.item.length}</span>
+                        <span class="count"><%= typeof cartLength !== 'undefined' ? cartLength : 0 %></span>
                       </a>
                     </li>
                     <li class="d-inline-block d-md-none ml-md-0"><a href="#"
@@ -129,7 +129,7 @@
                       <li>
                         <a href="/login" class="site-cart">
                           <span class="icon icon-shopping_cart"></span>
-                          <!-- <span class="count"></span> -->
+                          <span class="count"><%= typeof cartLength !== 'undefined' ? cartLength : 0 %></span>
                         </a>
                       </li>
                       <li class="d-inline-block d-md-none ml-md-0"><a href="#"

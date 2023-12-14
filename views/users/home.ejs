@@ -100,7 +100,7 @@
           </div>
           <div class="text">
             <h2 class="text-uppercase">Free Shipping</h2>
-            <p>We're proud to offer free shipping on all home appliances. We believe that convenience shouldn't come at
+            <p class="DescriptionText">We're proud to offer free shipping on all home appliances. We believe that convenience shouldn't come at
               an extra cost,
               which is why we've made it our mission to provide you with a hassle-free shopping experience. Whether
               you're in need of
@@ -115,7 +115,7 @@
           </div>
           <div class="text">
             <h2 class="text-uppercase">Free Returns</h2>
-            <p>We understand that buying home appliances online can sometimes be a daunting experience, which is why we
+            <p class="DescriptionText">We understand that buying home appliances online can sometimes be a daunting experience, which is why we
               offer hassle-free,
               free returns on all our products. We want you to feel confident and satisfied with your purchase, and if
               for any reason
@@ -130,7 +130,7 @@
           </div>
           <div class="text">
             <h2 class="text-uppercase">Customer Support</h2>
-            <p>We are providing exceptional customer support for all your home appliance needs. Our knowledgeable and
+            <p class="DescriptionText">We are providing exceptional customer support for all your home appliance needs. Our knowledgeable and
               friendly
               customer service team is here to assist you every step of the way, whether you have questions about
               product features, need help
@@ -156,14 +156,14 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <div class="nonloop-block-3 owl-carousel">
+          <div class="Description nonloop-block-3 owl-carousel">
 <% for(let i=0;i<6;i++){ %>
             <div class="item">
               <div class="block-4 text-center">  
                <center><img src="/uploads/<%=product[i]?.image?.[0]%>" alt="Product" class="img-fluid"></center>
               </div>
-                <div class="block-4-text p-4" style="height: 260px;">
-                  <h3><a href=""><%=product[i]?.name%>&nbsp;<%=product[i]?.category%></a></h3>
+                <div class="inside block-4-text p-4">
+                  <h3><a href="" class="fontHead"><%=product[i]?.name%>&nbsp;<%=product[i]?.category%></a></h3>
                   <p class="text-primary font-weight-bold"><%=product[i]?.price%> ₹ </p>
                   <p class="mb-0"><%=product[i]?.description%></p>
                 </div>
@@ -178,7 +178,7 @@
                     class="fa fa-shopping-cart mr-1"></i> Add To
                 Cart</button></a>
               <% }else{ %>
-                <a href=""> <button class="btn btn-warning px-3" style="font-size: small; opacity: 100%;"><i
+                <a> <button class="btn btn-warning px-3" style="font-size: small; opacity: 100%;"><i
                   class="fa fa-shopping-cart mr-1"></i> Out Of
               Stock</button></a>
                 <% } %>

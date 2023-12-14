@@ -11,7 +11,8 @@ const loadWishlist = async (req, res) => {
         if (userSession.user_id) {
             const userData = await User.findById({ _id: userSession.user_id })
             const completeUser = await userData.populate('wishlist.item.productId')
-            res.render('wishlist', { user: req.session.user, wishlistProducts: completeUser.wishlist })
+            const cartLength= userData.cart.item.length ;
+            res.render('wishlist', { user: req.session.user, wishlistProducts: completeUser.wishlist, cartLength:cartLength })
 
         } else {
             res.redirect('/login')
