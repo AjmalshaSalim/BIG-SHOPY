@@ -1,72 +1,71 @@
 .block-4 {
-    height: 300px;
-    border-radius: 20px;
-    justify-content: center;
+  height: 300px;
+  border-radius: 20px;
+  justify-content: center;
 }
 
-
 .item {
-    background-color: white;
-    height: 560px;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.3s all;
-    margin-left: 15px;
-    cursor: pointer;
+  background-color: white;
+  height: 560px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s all;
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 .img-fluid {
-    height: 300px;
-    width: 300px;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+  height: 300px;
+  width: 300px;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.inside{
-
-    height: 200px;
-    overflow: hidden;
+.inside {
+  height: 200px;
+  overflow: hidden;
 }
 .img-fluid:hover {
-    padding-bottom: 20px;
-    transform: scale(1.1);
-    transition: ease-in-out;
-    transition-duration: 1000ms;
+  padding-bottom: 20px;
+  transform: scale(1.1);
+  transition: ease-in-out;
+  transition-duration: 1000ms;
 }
 .item:hover {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 35px 40px -7px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 35px 40px -7px;
 }
 
 .container {
-    background: transparent;
+  background: transparent;
 }
 
 .owl-stage {
-    margin-left: 15px;
-    margin-bottom: 65px;
-    overflow: visible;
+  margin-left: 15px;
+  margin-bottom: 65px;
+  overflow: visible;
 }
 
 .col-md {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
-.Description{
-    animation: slidein 2s ease-in-out 1s forwards;
+.Description {
+  animation: slidein 2s ease-in-out 1s forwards;
 }
-
 
 @keyframes slidein {
-    0% {
-        margin-left: 100%;
-    }
-    100% {
-        margin-left: 0%;
-    }
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
 }
 
-
-.DescriptionText{
-      text-align: justify;
-
+.DescriptionText {
+  text-align: justify;
+}
+.BannerTextBox {
+  background-color: rgba(127, 255, 212, 0.123);
+  /* background-color: rgba(0,0,0,0.2) */
 }

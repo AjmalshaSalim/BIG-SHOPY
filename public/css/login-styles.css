@@ -74,11 +74,7 @@ list-type-ulli {
   font-family: 'Montserrat';
   font-style: italic;
   font-weight: 900;
-  src: url("../fonts/montserrat/montserrat-v12-latin-900.ttf"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.eot") format("embedded-opentype"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"),
-    url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype");
+  src: url("../fonts/montserrat/montserrat-v12-latin-900.ttf"), url("../fonts/montserrat/montserrat-v12-latin-900.eot") format("embedded-opentype"), url("../fonts/montserrat/montserrat-v12-latin-900.svg") format("woff2"), url("../fonts/montserrat/montserrat-v12-latin-900.woff") format("woff"), url("../fonts/montserrat/montserrat-v12-latin-900.woff2") format("truetype");
 }
 
 a:focus,
@@ -235,15 +231,20 @@ body {
 }
 
 .login-content {
-  background: white;
+  background: #fff;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
-  padding: 50px 85px;
-  width: 65%;
+  padding: 40px 55px;
+  width: 50%;
 
+}
+@media screen and (max-width: 480px) {
+  .login-content {
+    padding: 50px 25px;
+  }
 }
 
 .form-group {
@@ -445,10 +446,6 @@ input[type=checkbox]:not(old):checked+label>span:before {
   }
 }
 
-@media screen and (max-width: 480px) {
-  .login-content {
-    padding: 50px 25px;
-  }
-}
+
 
 /*# sourceMappingURL=style.css.map */
