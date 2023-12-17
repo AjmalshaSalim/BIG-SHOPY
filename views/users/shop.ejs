@@ -76,12 +76,21 @@
             cursor: pointer;
         }
 
+        .card-img-top:hover{
+            transform: scale(1.1);
+            transition: ease-in-out;
+            transition-duration: 1000ms;
+        }
 
         input[type="radio"]+label::before:focus,
         input[type="radio"]+label::before:hover {
             outline: none;
             border-color: #00b3b3;
         }
+        .image-container{
+            overflow: hidden;
+            height:230px;
+}
     </style>
 
     
@@ -172,10 +181,12 @@
                     <% for(i=0;i<product.length;i++){ %>
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="/view-details?id=<%=product[i]._id%>">
+                        <div class="image-container">
+                            <a href="/view-details?id=<%=product[i]._id%>">
                             <img src="/uploads/<%=product[i].image[0]%>" class="card-img-top" alt="...">
                         </a>
-                        <div class="card-body" style="background-color: red; height: 400px; overflow: hidden;">
+                            </div>
+                        <div class="card-body">
                             <ul class="list-unstyled d-flex justify-content-between">
                                 <li>
                                     <i class="text-warning fa fa-star"></i>

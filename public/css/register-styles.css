@@ -189,6 +189,8 @@ body {
   width: 660px;
   position: relative;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .display-flex {
@@ -236,7 +238,14 @@ body {
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
   padding: 50px 85px;
+  width: 50%;
 }
+@media screen and (max-width: 480px) {
+  .signup-content {
+    padding: 50px 25px;
+  }
+}
+
 
 .form-group {
   overflow: hidden;
