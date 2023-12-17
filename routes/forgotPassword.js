@@ -1,6 +1,6 @@
 const express = require("express");
 const forgot_Password = express();
-const forgotP = require("../controllers/forgotpassword");
+const forgotP = require("../controllers/forgot_password");
 
 forgot_Password.set('views', './views/users');
 
